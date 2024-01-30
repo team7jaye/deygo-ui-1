@@ -1,13 +1,18 @@
 'use client';
 
 import React from 'react';
-
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { SIDENAV_ITEMS } from '@/utils/constants';
 
-const SideBar = () => {
+type Props = {
+  callback: (x: boolean) => void;
+  mobile: boolean;
+};
+
+const SideBar = ({ callback, mobile }: Props) => {
   const pathname = usePathname();
+  console.log(mobile);
   return (
     <div className="w-full px-6 md:w-72 md:px-[3.06rem] h-screen flex-1 fixed md:border-r border-primary-30 pt-14 md:pt-6">
       <div className="flex  flex-col md:items-center  space-y-6 w-full">
@@ -16,6 +21,7 @@ const SideBar = () => {
             <Link
               key={idx}
               href={item.path}
+              onClick={() => (mobile ? callback(true) : undefined)}
               className={`text-[1.384rem] flex flex-row space-x-4 items-center p-2 rounded-lg hover:bg-zinc-100  text-primary-20 font-medium ${
                 item.path === pathname ? 'bg-zinc-100' : ''
               }`}

@@ -16,6 +16,7 @@ const config: Config = {
           10: '#FB3D3D', //red
           20: '#444', //grey
           30: '#BDBDBD', //light grey
+          40: '#302F2F', // sub header grey
         },
       },
     },
