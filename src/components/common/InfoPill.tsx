@@ -1,9 +1,4 @@
-import { IconType } from 'react-icons';
-import { FaMotorcycle } from 'react-icons/fa';
-
 type Props = {
-  icon?: IconType;
-  text?: string;
   item: Record<string, any>;
 };
 
