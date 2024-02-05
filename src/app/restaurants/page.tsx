@@ -1,19 +1,34 @@
-import ActivitiesList from "@/components/ActivitiesList";
-
+import ActivitiesList from '@/components/ActivitiesList';
+import InfoPill from '@/components/common/InfoPill';
+import { FaMotorcycle } from 'react-icons/fa';
 const Restaurants = () => {
   const items = [
-    { name: "Restaurant 1", time: "42 mins", location: "Ikorodu", type: "Fine-dining", foodType:"test", likes:16 },
-    { name: "Restaurant 2", time: "30 mins", location: "Lekki", type: "Casual" , foodType:"test", likes:20},
+    {
+      name: 'Restaurant 1',
+      time: '42 mins',
+      location: 'Ikorodu',
+      type: 'Fine-dining',
+      foodType: 'test',
+      likes: 16,
+    },
+    {
+      name: 'Restaurant 2',
+      time: '30 mins',
+      location: 'Lekki',
+      type: 'Casual',
+      foodType: 'test',
+      likes: 20,
+    },
     // Add more items as needed
   ];
 
   return (
     <div>
-      <h1>Your Page</h1>
       <div>
-      <ActivitiesList items={items} />
-    </div>   
-     </div>
+        <ActivitiesList items={items} />
+        <InfoPill item={{ text: 'text', icon: FaMotorcycle }} />
+      </div>
+    </div>
   );
 };
 

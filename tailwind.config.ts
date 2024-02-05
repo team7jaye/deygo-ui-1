@@ -18,6 +18,9 @@ const config: Config = {
           30: '#BDBDBD', //light grey
           40: '#302F2F', // sub header grey
         },
+        secondary: {
+          10: '#545353', //grey color
+        },
       },
     },
   },
