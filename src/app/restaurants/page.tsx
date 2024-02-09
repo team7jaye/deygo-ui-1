@@ -1,5 +1,6 @@
 import ActivitiesList from '@/components/ActivitiesList';
 import InfoPill from '@/components/common/InfoPill';
+import InfoPillGrey from '@/components/common/infoPillGrey';
 import { FaMotorcycle } from 'react-icons/fa';
 const Restaurants = () => {
   const items = [
@@ -25,8 +26,9 @@ const Restaurants = () => {
   return (
     <div>
       <div>
-        <ActivitiesList items={items} />
+        {/* <ActivitiesList items={items} /> */}
         <InfoPill item={{ text: 'text', icon: FaMotorcycle }} />
+        <InfoPillGrey text="Outdoor" />
       </div>
     </div>
   );

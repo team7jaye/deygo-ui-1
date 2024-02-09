@@ -19,7 +19,9 @@ const config: Config = {
           40: '#302F2F', // sub header grey
         },
         secondary: {
-          10: '#545353', //grey color
+          10: '#545353', //grey color;
+          20: '#EFEFEF', //light grey bg on pill;
+          30: '#B8B8B8', //light grey text on pill;
         },
       },
     },
