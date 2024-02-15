@@ -31,7 +31,14 @@ const AppLayout = ({ children }: { children: ReactNode }) => {
         <div className={classnames}>
           <SideBar callback={setShowMain} mobile={isMobile} />
         </div>
-        <div className={classNames(classNames2, 'md:ml-72')}>{children}</div>
+        <div
+          className={classNames(
+            classNames2,
+            'md:ml-72 relative min-h-[calc(100dvh-64.67px)] mt-0'
+          )}
+        >
+          {children}
+        </div>
       </main>
     </>
   );

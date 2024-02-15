@@ -22,7 +22,11 @@ const config: Config = {
           10: '#545353', //grey color;
           20: '#EFEFEF', //light grey bg on pill;
           30: '#B8B8B8', //light grey text on pill;
+          40: '#C7C7C7', //dark gray border divide
         },
+      },
+      fontFamily: {
+        aleo: ['Aleo', 'serif'],
       },
     },
   },
