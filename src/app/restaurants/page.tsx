@@ -1,4 +1,3 @@
-import ActivitiesList from '@/components/ActivitiesList';
 import InfoPill from '@/components/common/InfoPill';
 import InfoPillGrey from '@/components/common/infoPillGrey';
 import { FaMotorcycle } from 'react-icons/fa';
