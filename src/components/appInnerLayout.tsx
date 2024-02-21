@@ -6,7 +6,13 @@ import { ReactNode, useEffect, useState } from 'react';
 import { isMobile } from 'react-device-detect';
 import { classNames } from '@/utils/functions';
 
-const AppLayout = ({ children }: { children: ReactNode }) => {
+const AppInnerLayout = ({
+  sidebar,
+  children,
+}: {
+  children: ReactNode;
+  sidebar: ReactNode;
+}) => {
   const [showMain, setShowMain] = useState(false);
   const [classnames, setClassName] = useState('');
   const [classNames2, setClassName2] = useState('');
@@ -29,12 +35,16 @@ const AppLayout = ({ children }: { children: ReactNode }) => {
       <Header setShowMain={setShowMain} showMain={showMain} />
       <main>
         <div className={classnames}>
-          <SideBar callback={setShowMain} mobile={isMobile} />
+          {/* <SideBar callback={setShowMain} mobile={isMobile} /> */}
+          <div className="w-full md:w-96 max-h-screen flex-1 fixed top-0 md:border-r border-primary-30 pt-14">
+            {' '}
+            {sidebar}
+          </div>
         </div>
         <div
           className={classNames(
             classNames2,
-            'md:ml-72 relative min-h-[calc(100dvh-64.67px)] mt-0'
+            'md:ml-96 relative min-h-[calc(100dvh-64.67px)] mt-0'
           )}
         >
           {children}
@@ -44,4 +54,4 @@ const AppLayout = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export default AppLayout;
+export default AppInnerLayout;

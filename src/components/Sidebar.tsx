@@ -23,7 +23,7 @@ const SideBar = ({ callback, mobile }: Props) => {
               href={item.path}
               onClick={() => (mobile ? callback(true) : undefined)}
               className={`text-[1.384rem] flex flex-row space-x-4 items-center p-2 rounded-lg hover:bg-zinc-100  text-primary-20 font-medium ${
-                item.path === pathname ? 'bg-zinc-100' : ''
+                pathname.includes(item.path) ? 'bg-zinc-100 font-extrabold' : ''
               }`}
             >
               <item.icon className="text-primary-10 flex-shrink-0" />

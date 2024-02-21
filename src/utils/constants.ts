@@ -31,8 +31,8 @@ export const SIDENAV_ITEMS = [
     icon: MdHotel,
   },
   {
-    title: 'Activites',
-    path: '/activites',
+    title: 'Activities',
+    path: '/activities',
     icon: RiRunFill,
   },
   {
