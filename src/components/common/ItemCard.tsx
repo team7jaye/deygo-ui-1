@@ -6,7 +6,7 @@ import { IoShareSocial } from 'react-icons/io5';
 
 const ItemCard = ({ data }: { data: Record<string, any> }) => {
   return (
-    <article className="w-full px-7 md:py-3.5 max-w-3xl h-28 relative border-b border-zinc-100 flex justify-between items-center gap-4">
+    <article className="bg-transparent w-full px-7 md:py-3.5 max-w-3xl min-h-28 relative border-b border-zinc-100 flex justify-between items-center gap-4">
       <div className="space-y-[0.6575rem]">
         <h3 className="text-neutral-800 text-lg font-medium">{data.name}</h3>
         <div className="flex gap-2 sm:gap-[0.8125rem] items-center text-neutral-600 text-sm ">

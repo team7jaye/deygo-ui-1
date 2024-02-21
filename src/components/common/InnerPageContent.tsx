@@ -1,34 +1,19 @@
 import InfoPill from '@/components/common/InfoPill';
-import { BsTwitterX } from 'react-icons/bs';
-import { CiGlobe, CiHeart } from 'react-icons/ci';
-import {
-  FaCheckCircle,
-  FaEnvelope,
-  FaInstagram,
-  FaMotorcycle,
-  FaPaw,
-  FaPhoneAlt,
-  FaWhatsapp,
-} from 'react-icons/fa';
-import { FaDiamondTurnRight, FaMountainSun } from 'react-icons/fa6';
-import { IoIosWifi } from 'react-icons/io';
-import { IoShareSocial } from 'react-icons/io5';
-import { LiaSwimmingPoolSolid } from 'react-icons/lia';
+import { FaCheckCircle, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
 import { LuClock3 } from 'react-icons/lu';
-import { RiBookReadFill, RiLightbulbFlashFill } from 'react-icons/ri';
-import { TbReservedLine } from 'react-icons/tb';
 
-const SingleRestaurantPage = () => {
+const InnerPageContent = ({ data }: { data: Record<string, any> }) => {
+  const { title, actions, extras, photos, amenities } = data;
   return (
-    <div>
+    <>
       <div className="divide-y divide-secondary-40">
         <div className="px-[2.1875rem] space-y-5 mb-8 pt-[2.125rem]">
-          <h2 className="font-bold text-2xl">Yellow Chilli Restaurant</h2>
+          <h2 className="font-bold text-2xl">{title}</h2>
           <div className="rounded-3xl">
             <img src="/map.png" alt="map" />
           </div>
           <div className="flex gap-16 items-center justify-center">
-            {actions.map((item) => (
+            {(actions as Record<string, any>[]).map((item) => (
               <div
                 key={item.text}
                 className="flex flex-col items-center gap-[12.75px] text-primary-10 font-semibold text-sm"
@@ -42,7 +27,7 @@ const SingleRestaurantPage = () => {
           </div>
         </div>
         <div className="flex gap-2.5 items-center flex-wrap py-6 px-6">
-          {extras.map((item) => (
+          {(extras as Record<string, any>[]).map((item) => (
             <InfoPill item={item} key={item.text} />
           ))}
         </div>
@@ -88,12 +73,15 @@ const SingleRestaurantPage = () => {
         <div className="px-7 py-3.5 space-y-3.5">
           <h3 className="font-bold font-aleo">Photos</h3>
           <div className="flex gap-[8.87px] overflow-auto">
-            {photos.map((photo, i) => (
+            {(photos as Record<string, any>[]).map((photo, i) => (
               <div
                 key={i}
                 className="max-w-[6.65rem] overflow-hidden rounded-[13.3px] flex-shrink-0"
               >
-                <img src={photo} className="w-full object-cover" />
+                <img
+                  src={photo as unknown as string}
+                  className="w-full object-cover"
+                />
               </div>
             ))}
           </div>
@@ -101,7 +89,7 @@ const SingleRestaurantPage = () => {
         <div className="px-7 py-3.5 space-y-3.5">
           <h3 className="font-bold font-aleo">Amenities</h3>
           <div className="flex gap-2.5 items-center flex-wrap">
-            {amenities.map((item) => (
+            {(amenities as Record<string, any>[]).map((item) => (
               <InfoPill item={item} key={item.text} />
             ))}
           </div>
@@ -116,69 +104,8 @@ const SingleRestaurantPage = () => {
       <div>
         <p className="text-center py-24">Report a problem</p>
       </div>
-    </div>
+    </>
   );
 };
 
-export default SingleRestaurantPage;
-const actions = [
-  { text: 'Directions', icon: FaDiamondTurnRight },
-  { text: 'Favourite', icon: CiHeart },
-  { text: 'Share', icon: IoShareSocial },
-];
-
-const extras = [
-  {
-    text: 'Menu',
-    icon: RiBookReadFill,
-  },
-  {
-    text: '+234 809 231 2761',
-    icon: FaWhatsapp,
-  },
-  {
-    text: 'Jumia Foods',
-    icon: FaMotorcycle,
-  },
-  {
-    text: 'Reserve',
-    icon: TbReservedLine,
-  },
-  {
-    text: 'Website',
-    icon: CiGlobe,
-  },
-  {
-    text: 'X',
-    icon: BsTwitterX,
-  },
-  {
-    text: 'Instagram',
-    icon: FaInstagram,
-  },
-];
-
-const amenities = [
-  {
-    text: 'Free WiFi',
-    icon: IoIosWifi,
-  },
-  {
-    text: 'Swimming Pool',
-    icon: LiaSwimmingPoolSolid,
-  },
-  {
-    text: 'Outdoor seating',
-    icon: FaMountainSun,
-  },
-  {
-    text: 'Pet friendly',
-    icon: FaPaw,
-  },
-  {
-    text: '24/7 Electricity',
-    icon: RiLightbulbFlashFill,
-  },
-];
-
-const photos = ['/photo.png', '/photo2.png', '/photo2.png', '/photo2.png'];
+export default InnerPageContent;
