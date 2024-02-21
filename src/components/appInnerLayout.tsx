@@ -36,7 +36,7 @@ const AppInnerLayout = ({
       <main>
         <div className={classnames}>
           {/* <SideBar callback={setShowMain} mobile={isMobile} /> */}
-          <div className="w-full md:w-96 max-h-screen flex-1 fixed top-0 md:border-r border-primary-30 pt-14">
+          <div className="w-full md:w-96 min-h-screen flex-1 fixed top-0 md:border-r border-primary-30 pt-14">
             {' '}
             {sidebar}
           </div>
