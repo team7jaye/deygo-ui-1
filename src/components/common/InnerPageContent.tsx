@@ -16,31 +16,31 @@ const InnerPageContent = ({ data }: { data: Record<string, any> }) => {
             {(actions as Record<string, any>[]).map((item) => (
               <div
                 key={item.text}
-                className="flex flex-col items-center gap-[12.75px] text-primary-10 font-semibold text-sm"
+                className="flex flex-col items-center gap-[12.75px] text-secondary-50 font-semibold text-sm"
               >
                 <div>
                   <item.icon className="text-4xl" />
                 </div>
-                <span>{item.text}</span>
+                <span className='text-secondary-60'>{item.text}</span>
               </div>
             ))}
           </div>
         </div>
-        <div className="flex gap-2.5 items-center flex-wrap py-6 px-6">
+        {/* <div className="flex gap-2.5 items-center flex-wrap py-6 px-6">
           {(extras as Record<string, any>[]).map((item) => (
             <InfoPill item={item} key={item.text} />
           ))}
-        </div>
+        </div> */}
         <div className="grid md:grid-cols-2 px-7 py-3.5">
           <div className="space-y-3.5">
             <h3 className="font-bold font-aleo">Opening Hours</h3>
             <div className="text-[0.9375rem] space-y-4">
-              <div className="flex items-center gap-2">
-                <LuClock3 className="text-primary-10" />
+              <div className="flex items-center gap-2 text-secondary-60">
+                <LuClock3 className="text-secondary-50" />
                 <span>Mondays - Saturdays | 07:00AM - 19:00AM</span>
               </div>
-              <div className="flex items-center gap-2">
-                <LuClock3 className="text-primary-10" />
+              <div className="flex items-center gap-2 text-secondary-60">
+                <LuClock3 className="text-secondary-50" />
                 <span>Sundays | Closed</span>
               </div>
             </div>
@@ -48,12 +48,12 @@ const InnerPageContent = ({ data }: { data: Record<string, any> }) => {
           <div className="space-y-3.5">
             <h3 className="font-bold font-aleo">Contact Information</h3>
             <div className="text-[0.9375rem] space-y-4">
-              <div className="flex items-center gap-2">
-                <FaPhoneAlt className="text-primary-10" />
+              <div className="flex items-center gap-2 text-secondary-60">
+                <FaPhoneAlt className="text-secondary-50" />
                 <span>Phone number: +234 807 311 7817</span>
               </div>
-              <div className="flex items-center gap-2">
-                <FaEnvelope className="text-primary-10" />
+              <div className="flex items-center gap-2 text-secondary-60">
+                <FaEnvelope className="text-secondary-50" />
                 <span>Email address: yellowchilli@gmail.com</span>
               </div>
             </div>
@@ -94,12 +94,12 @@ const InnerPageContent = ({ data }: { data: Record<string, any> }) => {
             ))}
           </div>
         </div>
-        <div className="px-7 py-3.5">
+        {/* <div className="px-7 py-3.5">
           <div className="min-w-[4rem] w-max h-auto bg-[#059C1D] rounded-3xl flex items-center px-2.5 py-1.5">
             <FaCheckCircle className="text-white mr-2 h-4 w-4" />
             <div className="text-white text-xs font-medium">Owner-verified</div>
           </div>
-        </div>
+        </div> */}
       </div>
       <div>
         <p className="text-center py-24">Report a problem</p>
