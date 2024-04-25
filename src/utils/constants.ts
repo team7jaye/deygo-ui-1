@@ -30,24 +30,24 @@ export const SIDENAV_ITEMS = [
     path: '/hotels',
     icon: MdHotel,
   },
-  {
-    title: 'Activities',
-    path: '/activities',
-    icon: RiRunFill,
-  },
-  {
-    title: 'Wallet',
-    path: '/wallet',
-    icon: IoWallet,
-  },
-  {
-    title: 'Favourites',
-    path: '/favourites',
-    icon: IoHeartSharp,
-  },
-  {
-    title: 'Rewards',
-    path: '/rewards',
-    icon: PiMedalMilitaryFill,
-  },
+  // {
+  //   title: 'Activities',
+  //   path: '/activities',
+  //   icon: RiRunFill,
+  // },
+  // {
+  //   title: 'Wallet',
+  //   path: '/wallet',
+  //   icon: IoWallet,
+  // },
+  // {
+  //   title: 'Favourites',
+  //   path: '/favourites',
+  //   icon: IoHeartSharp,
+  // },
+  // {
+  //   title: 'Rewards',
+  //   path: '/rewards',
+  //   icon: PiMedalMilitaryFill,
+  // },
 ];
