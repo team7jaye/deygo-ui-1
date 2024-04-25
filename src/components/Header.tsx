@@ -47,7 +47,7 @@ const Header = ({ setShowMain, showMain }: headerprops) => {
           </NavbarBrand>
         </Link>
 
-        <NavbarContent justify="end" className=" text-primary-10">
+        <NavbarContent justify="end" className=" text-secondary-60">
           <NavbarItem className="hidden md:flex">
             <BsFillGridFill className="w-7 h-7" />
           </NavbarItem>
