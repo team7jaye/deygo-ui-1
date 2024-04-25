@@ -64,7 +64,7 @@ const CommonItemList = ({ mx, itemArr, link, page }: props) => {
               href={`${link}/${item.name}`}
               className={classNames(
                 mx && decodeURIComponent(params?.slug as string) == item.name
-                  ? 'bg-primary-10/[11%]'
+                  ? 'bg-secondary-20'
                   : 'bg-transparent',
                 'block'
               )}

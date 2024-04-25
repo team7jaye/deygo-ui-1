@@ -26,8 +26,8 @@ const SideBar = ({ callback, mobile }: Props) => {
                 pathname.includes(item.path) ? 'bg-zinc-100 font-extrabold' : ''
               }`}
             >
-              <item.icon className="text-primary-10 flex-shrink-0" />
-              <span className="font-semibold text-xl flex">{item.title}</span>
+              <item.icon className="text-secondary-50 flex-shrink-0" />
+              <span className="font-semibold text-xl flex text-secondary-60">{item.title}</span>
             </Link>
           ))}
         </div>
