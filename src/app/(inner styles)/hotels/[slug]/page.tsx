@@ -35,8 +35,8 @@ const SingleRestaurantPage = () => {
 export default SingleRestaurantPage;
 const actions = [
   { text: 'Directions', icon: FaDiamondTurnRight },
-  { text: 'Favourite', icon: CiHeart },
-  { text: 'Share', icon: IoShareSocial },
+  // { text: 'Favourite', icon: CiHeart },
+  // { text: 'Share', icon: IoShareSocial },
 ];
 
 const extras = [
