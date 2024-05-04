@@ -31,14 +31,24 @@ const CommonItemList = ({ mx, itemArr, link, page }: props) => {
   const params = useParams();
 
   return (
-    <div className="pt-[2.125rem] max-h-[calc(100dvh-64.67px)] flex flex-col overflow-auto no-scrollbar">
+    <div
+      className={classNames(
+        mx ? 'pt-[2.125rem] ' : 'md:pt-[2.125rem] ',
+        'max-h-[calc(100dvh-64.67px)] flex flex-col overflow-auto no-scrollbar'
+      )}
+    >
       <div
         className={classNames(
           !mx ? 'px-[2.1875rem]' : 'px-7',
           'space-y-4 mb-8'
         )}
       >
-        <h2 className="hidden md:block font-bold text-2xl">
+        <h2
+          className={classNames(
+            mx ? 'block' : 'hidden md:block',
+            'font-bold text-2xl'
+          )}
+        >
           {mx ? (
             <Link href={link} className="flex items-center">
               <div className={!mx ? 'hidden' : 'block'}>

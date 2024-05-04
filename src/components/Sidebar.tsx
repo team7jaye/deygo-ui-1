@@ -7,7 +7,7 @@ import { SIDENAV_ITEMS } from '@/utils/constants';
 
 type Props = {
   callback: (x: boolean) => void;
-  mobile: boolean;
+  mobile: number;
 };
 
 const SideBar = ({ callback, mobile }: Props) => {
@@ -21,13 +21,15 @@ const SideBar = ({ callback, mobile }: Props) => {
             <Link
               key={idx}
               href={item.path}
-              onClick={() => (mobile ? callback(true) : undefined)}
+              onClick={() => (mobile < 768 ? callback(true) : undefined)}
               className={`text-[1.384rem] flex flex-row space-x-4 items-center p-2 rounded-lg hover:bg-zinc-100  text-primary-20 font-medium ${
                 pathname.includes(item.path) ? 'bg-zinc-100 font-extrabold' : ''
               }`}
             >
               <item.icon className="text-secondary-50 flex-shrink-0" />
-              <span className="font-semibold text-xl flex text-secondary-60">{item.title}</span>
+              <span className="font-semibold text-xl flex text-secondary-60">
+                {item.title}
+              </span>
             </Link>
           ))}
         </div>

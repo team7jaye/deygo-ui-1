@@ -1,10 +1,11 @@
 'use client';
 
 import Header from '@/components/Header';
-import SideBar from '@/components/Sidebar';
-import { ReactNode, useEffect, useState } from 'react';
-import { isMobile } from 'react-device-detect';
+import { ReactNode, useEffect, useLayoutEffect, useState } from 'react';
 import { classNames } from '@/utils/functions';
+import { useScreenWidth } from '@/hooks/useScreenWidth';
+import { FaArrowLeft } from 'react-icons/fa';
+import { useParams } from 'next/navigation';
 
 const AppInnerLayout = ({
   sidebar,
@@ -13,22 +14,26 @@ const AppInnerLayout = ({
   children: ReactNode;
   sidebar: ReactNode;
 }) => {
+  const { slug } = useParams();
+  const [title, setTitle] = useState('');
   const [showMain, setShowMain] = useState(false);
   const [classnames, setClassName] = useState('');
   const [classNames2, setClassName2] = useState('');
-
+  const screenWidth = useScreenWidth();
   useEffect(() => {
+    if (slug) {
+      setTitle(decodeURIComponent(slug as string));
+    }
+  }, [slug]);
+
+  useLayoutEffect(() => {
     const updatedClassName =
-      isMobile && !showMain ? 'block' : 'hidden md:block';
+      screenWidth < 768 && showMain ? 'block' : 'hidden md:block';
     const updatedClassName2 =
-      isMobile && showMain ? 'block' : 'hidden md:block';
+      screenWidth < 768 && !showMain ? 'block' : 'hidden md:block';
     setClassName(updatedClassName);
     setClassName2(updatedClassName2);
-  }, [isMobile, showMain]);
-
-  useEffect(() => {
-    setShowMain(false);
-  }, [isMobile]);
+  }, [screenWidth, showMain]);
 
   return (
     <>
@@ -36,17 +41,28 @@ const AppInnerLayout = ({
       <main>
         <div className={classnames}>
           {/* <SideBar callback={setShowMain} mobile={isMobile} /> */}
-          <div className="w-full md:w-96 min-h-screen flex-1 fixed top-0 md:border-r border-primary-30 pt-14">
-            {' '}
+          <div
+            onClick={() => (screenWidth < 768 ? setShowMain(!showMain) : null)}
+            className="w-full md:w-96 min-h-screen flex-1 fixed top-0 md:border-r border-primary-30 pt-14"
+          >
             {sidebar}
           </div>
         </div>
         <div
           className={classNames(
             classNames2,
-            'md:ml-96 relative min-h-[calc(100dvh-64.67px)] mt-0'
+            'md:ml-96 relative min-h-[calc(100dvh-64.67px)] mt-0 bg-white'
           )}
         >
+          {!showMain && (
+            <button
+              onClick={() => setShowMain(!showMain)}
+              className="px-[2.1875rem] flex gap-[0.44rem] items-center md:hidden font-bold text-2xl pt-[2.125rem]"
+            >
+              <FaArrowLeft />
+              {title}
+            </button>
+          )}
           {children}
         </div>
       </main>

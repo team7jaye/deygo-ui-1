@@ -1,8 +1,3 @@
-'use client';
-import MainSupermarket from '@/app/(outer styles)/supermarkets/MainSupermarket';
-import AppInnerLayout from '@/components/appInnerLayout';
-import InnerPageContent from '@/components/common/InnerPageContent';
-import { useParams } from 'next/navigation';
 import { BsTwitterX } from 'react-icons/bs';
 import { CiGlobe, CiHeart } from 'react-icons/ci';
 import { FaInstagram, FaMotorcycle, FaPaw, FaWhatsapp } from 'react-icons/fa';
@@ -13,25 +8,6 @@ import { LiaSwimmingPoolSolid } from 'react-icons/lia';
 import { RiBookReadFill, RiLightbulbFlashFill } from 'react-icons/ri';
 import { TbReservedLine } from 'react-icons/tb';
 
-const SingleRestaurantPage = () => {
-  const { slug } = useParams();
-
-  return (
-    <AppInnerLayout sidebar={<MainSupermarket mx={true} />}>
-      <InnerPageContent
-        data={{
-          title: decodeURIComponent(slug as string),
-          actions,
-          extras,
-          photos,
-          amenities,
-        }}
-      />
-    </AppInnerLayout>
-  );
-};
-
-export default SingleRestaurantPage;
 const actions = [
   { text: 'Directions', icon: FaDiamondTurnRight },
   // { text: 'Favourite', icon: CiHeart },
@@ -93,3 +69,35 @@ const amenities = [
 ];
 
 const photos = ['/photo.png', '/photo2.png', '/photo2.png', '/photo2.png'];
+export const pageContents = {
+  activities: {
+    actions,
+    extras,
+    photos,
+    amenities,
+  },
+  bars: {
+    actions,
+    extras,
+    photos,
+    amenities,
+  },
+  hotels: {
+    actions,
+    extras,
+    photos,
+    amenities,
+  },
+  restaurants: {
+    actions,
+    extras,
+    photos,
+    amenities,
+  },
+  supermarkets: {
+    actions,
+    extras,
+    photos,
+    amenities,
+  },
+};

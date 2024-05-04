@@ -87,10 +87,10 @@ const Header = ({ setShowMain, showMain }: headerprops) => {
           ))}
         </NavbarMenu>
       </Navbar>
-      <div className={showMain ? 'block md:hidden' : 'hidden'}>
+      <div className={!showMain ? 'block md:hidden' : 'hidden'}>
         <InnerHeader
-          pathname={paths[paths.length - 1]}
-          callBack={() => setShowMain(false)}
+          pathname={paths[1]}
+          callBack={() => setShowMain(!showMain)}
         />
       </div>
     </>
