@@ -1,5 +1,5 @@
 import InfoPill from '@/components/common/InfoPill';
-import { FaCheckCircle, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
+import { FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
 import { LuClock3 } from 'react-icons/lu';
 
 const InnerPageContent = ({ data }: { data: Record<string, any> }) => {
@@ -7,8 +7,8 @@ const InnerPageContent = ({ data }: { data: Record<string, any> }) => {
   return (
     <>
       <div className="divide-y divide-secondary-40">
-        <div className="px-[2.1875rem] space-y-5 mb-8 pt-[2.125rem]">
-          <h2 className="font-bold text-2xl">{title}</h2>
+        <div className="px-[2.1875rem] space-y-5 mb-8 md:pt-[2.125rem]">
+          <h2 className="hidden md:block font-bold text-2xl">{title}</h2>
           <div className="rounded-3xl">
             <img src="/map.png" alt="map" />
           </div>
@@ -21,7 +21,7 @@ const InnerPageContent = ({ data }: { data: Record<string, any> }) => {
                 <div>
                   <item.icon className="text-4xl" />
                 </div>
-                <span className='text-secondary-60'>{item.text}</span>
+                <span className="text-secondary-60">{item.text}</span>
               </div>
             ))}
           </div>
@@ -31,7 +31,7 @@ const InnerPageContent = ({ data }: { data: Record<string, any> }) => {
             <InfoPill item={item} key={item.text} />
           ))}
         </div> */}
-        <div className="grid md:grid-cols-2 px-7 py-3.5">
+        <div className="grid md:grid-cols-2 px-7 py-3.5 max-md:gap-4">
           <div className="space-y-3.5">
             <h3 className="font-bold font-aleo">Opening Hours</h3>
             <div className="text-[0.9375rem] space-y-4">
