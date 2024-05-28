@@ -4,15 +4,17 @@ import { getBusinessesByCategory } from '@/api/categories';
 import CommonItemList from '@/components/common/CommonItemList';
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'next/navigation';
+
 const CategoriesPage = () => {
-  const { page } = useParams();
+  const { page, id } = useParams();
   const { data: businesses, isLoading } = useQuery({
-    queryKey: ['categories'],
-    queryFn: () => getBusinessesByCategory(page as string),
+    queryKey: ['categories', id],
+    queryFn: () => getBusinessesByCategory(id as string),
     select: (data) => {
       return data.data;
     },
-    enabled: !!page,
+    staleTime: 10 * 60 * 60,
+    enabled: !!id,
   });
   console.log(businesses);
   return (
@@ -22,8 +24,8 @@ const CategoriesPage = () => {
       ) : (
         <CommonItemList
           itemArr={businesses}
-          link={'/restaurants'}
-          page="Restaurants"
+          link={`/${page}/${id}`}
+          page={page as string}
         />
       )}
     </div>

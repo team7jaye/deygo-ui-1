@@ -22,7 +22,7 @@ const SideBar = ({ callback, mobile }: Props) => {
       return data?.data?.map((item: any) => ({
         id: item.categoryId,
         title: item.name,
-        path: `/${item.name.toLowerCase()}`,
+        path: `/categories/${item.name.toLowerCase()}/${item.id.toLowerCase()}`,
         icon: GiForkKnifeSpoon,
       }));
     },

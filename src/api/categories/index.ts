@@ -14,7 +14,11 @@ const getCategories = ({
 };
 
 const getBusinessesByCategory = (id: string): any => {
-  return axios.get(`${BASE_URL}/businesses/${id}`);
+  return axios.get(`${BASE_URL}/api/businesses?categoryId=${id}`);
 };
 
-export { getCategories, getBusinessesByCategory };
+const getBusinessById = (id: string): any => {
+  return axios.get(`${BASE_URL}/api/businesses/${id}`);
+};
+
+export { getCategories, getBusinessesByCategory, getBusinessById };
