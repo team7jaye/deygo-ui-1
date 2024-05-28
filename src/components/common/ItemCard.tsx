@@ -1,29 +1,29 @@
-import { CiHeart } from "react-icons/ci";
-import { FaMotorcycle } from "react-icons/fa";
-import { TbLocationFilled } from "react-icons/tb";
-import InfoPill from "./InfoPill";
-import { IoShareSocial } from "react-icons/io5";
-import { GrLocationPin } from "react-icons/gr";
+import { CiHeart } from 'react-icons/ci';
+import { FaMotorcycle } from 'react-icons/fa';
+import { TbLocationFilled } from 'react-icons/tb';
+import InfoPill from './InfoPill';
+import { IoShareSocial } from 'react-icons/io5';
+import { GrLocationPin } from 'react-icons/gr';
 
 const ItemCard = ({ data }: { data: Record<string, any> }) => {
+  console.log({ data });
   return (
     <article className="bg-transparent w-full px-7 md:py-3.5 max-w-3xl min-h-28 relative border-b border-zinc-100 flex justify-between items-center gap-4">
       <div className="space-y-[0.6575rem]">
         <h3 className="text-neutral-800 text-lg font-medium">{data.name}</h3>
         <div className="flex flex-col gap-1  text-secondary-50 text-sm ">
-          {data.location && (
+          {data.address && (
             <div className="flex gap-1 items-center">
               <GrLocationPin />
-              {data.location}
+              {data.address}
             </div>
           )}
-          {data.time && (
+          {data.phone && (
             <div className="flex gap-1 items-center">
               <TbLocationFilled />
-              {data.time}
+              {data.phone}
             </div>
           )}
-          
         </div>
         {/* <div className="flex items-center gap-1.5">
           {(data.extras as Record<string, any>[]).map((item, i) => (

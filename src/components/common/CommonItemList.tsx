@@ -5,6 +5,7 @@ import InfoPillGrey from '@/components/common/infoPillGrey';
 import { classNames } from '@/utils/functions';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
+import { useState } from 'react';
 import { IconType } from 'react-icons';
 import { FaMotorcycle } from 'react-icons/fa';
 import { RiArrowLeftLine, RiBookReadFill } from 'react-icons/ri';
@@ -29,7 +30,21 @@ export type ItemsArr = {
 };
 const CommonItemList = ({ mx, itemArr, link, page }: props) => {
   const params = useParams();
-
+  const [newState] = useState(() =>
+    itemArr?.map((item) => {
+      const {
+        contact: { phone },
+        location,
+        categories,
+        ...rest
+      } = item;
+      const newData: any = {
+        phone,
+        ...rest,
+      };
+      return newData;
+    })
+  );
   return (
     <div
       className={classNames(
@@ -46,11 +61,11 @@ const CommonItemList = ({ mx, itemArr, link, page }: props) => {
         <h2
           className={classNames(
             mx ? 'block' : 'hidden md:block',
-            'font-bold text-2xl'
+            'font-bold text-2xl capitalize'
           )}
         >
           {mx ? (
-            <Link href={link} className="flex items-center">
+            <Link href={`/categories${link}`} className="flex items-center">
               <div className={!mx ? 'hidden' : 'block'}>
                 <RiArrowLeftLine />
               </div>{' '}
@@ -68,10 +83,10 @@ const CommonItemList = ({ mx, itemArr, link, page }: props) => {
       </div>
       <div>
         <div className={classNames(!mx ? 'md:px-[1.0625rem]' : '')}>
-          {itemArr.map((item) => (
+          {newState?.map((item) => (
             <Link
               key={item.id}
-              href={`${link}/${item.name}`}
+              href={`${link}/${item.id}`}
               className={classNames(
                 mx && decodeURIComponent(params?.slug as string) == item.name
                   ? 'bg-secondary-20'

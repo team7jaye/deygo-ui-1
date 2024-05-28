@@ -1,30 +1,24 @@
 'use client';
 
 import Header from '@/components/Header';
-import { ReactNode, useEffect, useLayoutEffect, useState } from 'react';
+import { ReactNode, useLayoutEffect, useState } from 'react';
 import { classNames } from '@/utils/functions';
 import { useScreenWidth } from '@/hooks/useScreenWidth';
 import { FaArrowLeft } from 'react-icons/fa';
-import { useParams } from 'next/navigation';
 
 const AppInnerLayout = ({
   sidebar,
   children,
+  title,
 }: {
   children: ReactNode;
   sidebar: ReactNode;
+  title: string;
 }) => {
-  const { slug } = useParams();
-  const [title, setTitle] = useState('');
   const [showMain, setShowMain] = useState(false);
   const [classnames, setClassName] = useState('');
   const [classNames2, setClassName2] = useState('');
   const screenWidth = useScreenWidth();
-  useEffect(() => {
-    if (slug) {
-      setTitle(decodeURIComponent(slug as string));
-    }
-  }, [slug]);
 
   useLayoutEffect(() => {
     const updatedClassName =

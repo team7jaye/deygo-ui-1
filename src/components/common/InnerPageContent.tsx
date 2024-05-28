@@ -3,7 +3,7 @@ import { FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
 import { LuClock3 } from 'react-icons/lu';
 
 const InnerPageContent = ({ data }: { data: Record<string, any> }) => {
-  const { title, actions, extras, photos, amenities } = data;
+  const { title, actions, extras, content, photos, amenities } = data;
   return (
     <>
       <div className="divide-y divide-secondary-40">
@@ -13,7 +13,7 @@ const InnerPageContent = ({ data }: { data: Record<string, any> }) => {
             <img src="/map.png" alt="map" />
           </div>
           <div className="flex gap-16 items-center justify-center">
-            {(actions as Record<string, any>[]).map((item) => (
+            {(actions as Record<string, any>[])?.map((item) => (
               <div
                 key={item.text}
                 className="flex flex-col items-center gap-[12.75px] text-secondary-50 font-semibold text-sm"
@@ -50,30 +50,27 @@ const InnerPageContent = ({ data }: { data: Record<string, any> }) => {
             <div className="text-[0.9375rem] space-y-4">
               <div className="flex items-center gap-2 text-secondary-60">
                 <FaPhoneAlt className="text-secondary-50" />
-                <span>Phone number: +234 807 311 7817</span>
+                <span>Phone number: {content?.contact?.phone}</span>
               </div>
               <div className="flex items-center gap-2 text-secondary-60">
                 <FaEnvelope className="text-secondary-50" />
-                <span>Email address: yellowchilli@gmail.com</span>
+                <span>Email address: {content?.contact?.email}</span>
+              </div>
+              <div className="flex items-center gap-2 text-secondary-60">
+                <FaEnvelope className="text-secondary-50" />
+                <span>Address: {content?.address}</span>
               </div>
             </div>
           </div>
         </div>
         <div className="px-7 py-3.5 space-y-3.5">
           <h3 className="font-bold font-aleo">Description</h3>
-          <p className="text-[0.9375rem]">
-            Lorem ipsum dolor sit amet consectetur. Tincidunt neque fermentum
-            sapien vel sit. Quam lobortis neque vitae dictum ornare. In amet
-            hendrerit iaculis lacus. Dui neque cras ut nunc nullam. Vulputate
-            viverra sem ridiculus enim diam ipsum ut gravida fermentum. Volutpat
-            quis est sagittis erat. Nisi ullamcorper eget urna accumsan amet
-            egestas mi. Risus.
-          </p>
+          <p className="text-[0.9375rem]">{content?.description}</p>
         </div>
         <div className="px-7 py-3.5 space-y-3.5">
           <h3 className="font-bold font-aleo">Photos</h3>
           <div className="flex gap-[8.87px] overflow-auto">
-            {(photos as Record<string, any>[]).map((photo, i) => (
+            {(photos as Record<string, any>[])?.map((photo, i) => (
               <div
                 key={i}
                 className="max-w-[6.65rem] overflow-hidden rounded-[13.3px] flex-shrink-0"
@@ -89,7 +86,7 @@ const InnerPageContent = ({ data }: { data: Record<string, any> }) => {
         <div className="px-7 py-3.5 space-y-3.5">
           <h3 className="font-bold font-aleo">Amenities</h3>
           <div className="flex gap-2.5 items-center flex-wrap">
-            {(amenities as Record<string, any>[]).map((item) => (
+            {(amenities as Record<string, any>[])?.map((item) => (
               <InfoPill item={item} key={item.text} />
             ))}
           </div>
