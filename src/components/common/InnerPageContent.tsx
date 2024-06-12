@@ -1,6 +1,6 @@
-import InfoPill from '@/components/common/InfoPill';
-import { FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
-import { LuClock3 } from 'react-icons/lu';
+import InfoPill from "@/components/common/InfoPill";
+import { FaEnvelope, FaPhoneAlt } from "react-icons/fa";
+import { LuClock3 } from "react-icons/lu";
 
 const InnerPageContent = ({ data }: { data: Record<string, any> }) => {
   const { title, actions, extras, content, photos, amenities } = data;
@@ -65,12 +65,16 @@ const InnerPageContent = ({ data }: { data: Record<string, any> }) => {
         </div>
         <div className="px-7 py-3.5 space-y-3.5">
           <h3 className="font-bold font-aleo">Description</h3>
-          <p className="text-[0.9375rem]">{content?.description}</p>
+          <p className="text-[0.9375rem]">
+            {content?.description
+              ? content.description
+              : "No description available"}
+          </p>
         </div>
         <div className="px-7 py-3.5 space-y-3.5">
           <h3 className="font-bold font-aleo">Photos</h3>
           <div className="flex gap-[8.87px] overflow-auto">
-            {(photos as Record<string, any>[])?.map((photo, i) => (
+            {/* {(photos as Record<string, any>[])?.map((photo, i) => (
               <div
                 key={i}
                 className="max-w-[6.65rem] overflow-hidden rounded-[13.3px] flex-shrink-0"
@@ -80,7 +84,10 @@ const InnerPageContent = ({ data }: { data: Record<string, any> }) => {
                   className="w-full object-cover"
                 />
               </div>
-            ))}
+            ))} */}
+            <div className="text-center text-gray-500">
+              No photos available.
+            </div>
           </div>
         </div>
         <div className="px-7 py-3.5 space-y-3.5">
