@@ -31,7 +31,7 @@ const DGInput = ({
     <Box as={FormControl} my={4}>
       {label && <DGInputLabel label={label} />}
 
-      <InputGroup borderColor="primary.500">
+      <InputGroup borderColor="primary.300">
         {addOnBefore && (
           <InputLeftAddon borderRadius="10px">{addOnBefore}</InputLeftAddon>
         )}
