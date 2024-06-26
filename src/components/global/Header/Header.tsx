@@ -35,10 +35,11 @@ const Header = () => {
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <Link href="/">
             <Image
-              src="/deygo.svg"
+              src="/Logo.svg"
               alt="deygo logo"
               maxW={{ base: "10vh", xl: "14vh" }}
               h="auto"
+              boxSize={'100px'}
             />
           </Link>
           {/* <Box>Logo</Box> */}
@@ -53,6 +54,7 @@ const Header = () => {
                 />
               )}
             </Box>
+            
             <IconButton
               size={"md"}
               icon={isOpen ? <FaTimes /> : <FaBars />}
