@@ -1,7 +1,10 @@
 import axios from "axios";
 
-export const BASE_URL =
+export const BASE_URL2 =
   "http://deygo-deyg-fdjpkxzbpdvr.eba-mk53ixvk.us-east-1.elasticbeanstalk.com";
+
+export const BASE_URL =
+  "https://5dcul9h4qe.execute-api.us-east-1.amazonaws.com/beta";
 
 const fetchCategories = async () => {
   try {
