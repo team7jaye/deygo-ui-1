@@ -17,7 +17,7 @@ const AuthLayout = ({ children }: AuthLayoutProps) => {
       <Flex
         as="main"
         w="full"
-        p={4}
+        // p={4}
         flexDir="column"
         justifyContent="center"
         alignItems="center"
