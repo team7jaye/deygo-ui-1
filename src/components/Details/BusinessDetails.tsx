@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import DescriptionSection from "./DescriptionSection";
 import TimeContact from "./TimeContact";
-import { Box, Flex, Heading, IconButton, Spinner } from "@chakra-ui/react";
+import { Box, Flex, Heading, IconButton, Spinner, useColorModeValue } from "@chakra-ui/react";
 import { getBusinessById } from "@/api/category";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Map from "../Map";
 import { FaArrowLeft } from "react-icons/fa";
-import DGButton from "../global/Button";
 import { useStore } from "../../../store";
 
 type Business = {
@@ -62,6 +61,9 @@ const BusinessDetails: React.FC = () => {
     router.back(); // Navigate back to the previous page
   };
 
+  const headingColor = useColorModeValue("gray.800", "white");
+  const descriptionBgColor = useColorModeValue("white", "gray.800");
+
   return (
     <Box>
       <IconButton
@@ -72,13 +74,13 @@ const BusinessDetails: React.FC = () => {
         display={{ base: "block", md: "none" }}
         onClick={goBack}
       />
-      <Heading as="h2" size="lg" mb={5}>
+      <Heading as="h2" size="lg" mb={5} color={headingColor}>
         {business.name}
       </Heading>
       <Box mb={5}>
         <Map />
       </Box>
-      <Box mb={5}>
+      <Box mb={5} bg={descriptionBgColor} p={4} borderRadius="md">
         <DescriptionSection content={{ description: business.description }} />
       </Box>
       <TimeContact

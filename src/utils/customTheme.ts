@@ -22,19 +22,19 @@ export const colors: Colors = {
     100: "#F5F5F5", // Very Light Gray
     200: "#E0E0E0", // Light Gray
   },
-  
+
   dark: {
     50: "#333333", // Dark Gray
     100: "#000000", // Black
     200: "#1A1A1A", // Very Dark Gray
   },
-  
+
   success: {
     50: "#E8F5E9", // Light Green
     100: "#66BB6A", // Medium Green
     200: "#388E3C", // Dark Green
   },
-  
+
   error: {
     50: "#FFEBEE", // Light Red
     100: "#E57373", // Medium Red
@@ -50,8 +50,8 @@ const config: ThemeConfig = {
 const styles = {
   global: (props: StyleProps) => ({
     body: {
-      bg: mode("white", "dark.900")(props),
-      color: "dark.500",
+      bg: mode("white", "gray.800")(props),
+      color: mode("gray.800", "white")(props),
       fontVariant: "normal",
     },
   }),

@@ -1,6 +1,6 @@
 // components/Layout.tsx
 import { ReactNode } from "react";
-import { Box, Container, Flex } from "@chakra-ui/react";
+import { Box, Container, Flex, useColorModeValue } from "@chakra-ui/react";
 import DGInput from "@/components/global/Input";
 import DGHeader from "../../Header";
 
@@ -10,7 +10,12 @@ interface LayoutProps {
 
 const MainLayout = ({ children }: LayoutProps) => {
   return (
-    <Box>
+    <Box
+      bg={useColorModeValue("white", "gray.800")}
+      minH="100vh"
+      display="flex"
+      flexDirection="column"
+    >
       <DGHeader />
 
       <Container
@@ -19,7 +24,7 @@ const MainLayout = ({ children }: LayoutProps) => {
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
-        mt={'60px'}
+        mt={"60px"}
       >
         <DGInput
           w="50%"

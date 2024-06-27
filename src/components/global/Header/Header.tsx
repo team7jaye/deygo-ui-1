@@ -5,6 +5,7 @@ import {
   IconButton,
   useDisclosure,
   useColorModeValue,
+  useColorMode,
   Stack,
   HStack,
   Image,
@@ -13,18 +14,21 @@ import { FaBars, FaTh, FaThLarge, FaThList, FaTimes } from "react-icons/fa";
 import { Link } from "@chakra-ui/next-js";
 import { useViewStore } from "../../../../store";
 import { usePathname } from "next/navigation";
+import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 
 const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { view, toggleView } = useViewStore();
   const pathname = usePathname();
+  const { colorMode, toggleColorMode } = useColorMode();
 
   const isHomePage = pathname === "/";
+  const filterValue = useColorModeValue("none", "invert(1)");
 
   return (
     <>
       <Box
-        bg={useColorModeValue("gray.100", "gray.900")}
+        bg={useColorModeValue("gray.100", "gray.800")}
         px={4}
         position="fixed"
         top={0}
@@ -39,7 +43,8 @@ const Header = () => {
               alt="deygo logo"
               maxW={{ base: "10vh", xl: "14vh" }}
               h="auto"
-              boxSize={'100px'}
+              boxSize={"100px"}
+              filter={filterValue}
             />
           </Link>
           {/* <Box>Logo</Box> */}
@@ -54,13 +59,20 @@ const Header = () => {
                 />
               )}
             </Box>
-            
+
             <IconButton
               size={"md"}
-              icon={isOpen ? <FaTimes /> : <FaBars />}
+              icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
               aria-label={"Open Menu"}
               display={{ md: "none" }}
               onClick={isOpen ? onClose : onOpen}
+            />
+            <IconButton
+              size="md"
+              icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+              aria-label="Toggle Color Mode"
+              onClick={toggleColorMode}
+              ml={4}
             />
           </HStack>
         </Flex>

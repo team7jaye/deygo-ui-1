@@ -23,9 +23,9 @@ const Map: React.FC = () => {
         flexDir="column"
         justifyContent="center"
         alignItems="center"
-        bg={useColorModeValue("whiteAlpha.800", "blackAlpha.800")}
         p={2}
         borderRadius="md"
+        color={useColorModeValue("gray.800", "white")}
       >
         <FaDirections size={24} />
         <Text mt={1} fontSize="md" fontWeight="bold">

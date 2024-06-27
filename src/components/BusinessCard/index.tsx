@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text, useColorModeValue } from "@chakra-ui/react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import React, { useCallback } from "react";
 import { GrLocationPin } from "react-icons/gr";
@@ -40,24 +40,30 @@ const BusinessCardItem = ({
     }
   };
 
+  const bgHoverColor = useColorModeValue("gray.100", "gray.700");
+  const textColor = useColorModeValue("neutral.800", "white");
+  const borderColor = useColorModeValue("zinc.100", "gray.600");
+
   return (
     <DGButton
       onClick={handleClick}
       as="a"
       variant="unstyled"
-      className="bg-transparent w-full px-7 md:py-3.5 max-w-3xl min-h-28 relative border-b border-zinc-100"
+      className="bg-transparent w-full px-7 md:py-3.5 max-w-3xl min-h-28 relative border-b"
+      borderBottom={`1px solid`}
+      borderColor={borderColor}
       display="flex"
       justifyContent="space-between"
       alignItems="center"
       _hover={{
         textDecoration: "none",
-        backgroundColor: "gray.100",
+        backgroundColor: bgHoverColor,
       }}
       cursor="pointer"
       textAlign="left"
     >
       <Box flex="1">
-        <Text fontSize="lg" fontWeight="medium" color="neutral.800">
+        <Text fontSize="lg" fontWeight="medium" color={textColor}>
           {name}
         </Text>
         <Flex

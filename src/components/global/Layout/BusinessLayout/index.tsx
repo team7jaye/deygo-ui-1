@@ -1,5 +1,12 @@
 import { ReactNode } from "react";
-import { Box, Container, Flex, Heading, useBreakpointValue } from "@chakra-ui/react";
+import {
+  Box,
+  Container,
+  Flex,
+  Heading,
+  useBreakpointValue,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import DGHeader from "../../Header";
 import Sidebar from "@/components/SideBar";
 import { useStore } from "../../../../../store";
@@ -11,16 +18,28 @@ interface LayoutProps {
   categoryId: string | string[];
 }
 
-const BusinessLayout = ({ children, backText, title, categoryId }: LayoutProps) => {
+const BusinessLayout = ({
+  children,
+  backText,
+  title,
+  categoryId,
+}: LayoutProps) => {
   const selectedDetail = useStore((state) => state.selectedDetail);
   const setSelectedDetail = useStore((state) => state.setSelectedDetail);
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   return (
-    <Box>
-      <DGHeader  />
-      <Flex marginTop="60px"> {/* Adjust this margin based on your header height */}
-        {(isMobile && !selectedDetail) ? (
+    <Box
+      bg={useColorModeValue("white", "gray.800")}
+      minH="100vh"
+      display="flex"
+      flexDirection="column"
+    >
+      <DGHeader />
+      <Flex marginTop="60px">
+        {" "}
+        {/* Adjust this margin based on your header height */}
+        {isMobile && !selectedDetail ? (
           <Sidebar
             backText={backText}
             categoryId={categoryId}
@@ -47,7 +66,6 @@ const BusinessLayout = ({ children, backText, title, categoryId }: LayoutProps) 
                 ) : (
                   <Box>Select an item from the sidebar</Box>
                 )}
-                
               </Box>
             </Container>
           </>
